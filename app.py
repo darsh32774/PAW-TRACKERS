@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['UPLOAD_FOLDER'] = 'static/uploads/pet_images'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Limit the file upload size to 16 MB
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  
 db = SQLAlchemy(app)
 app.secret_key = 'secret_key'
 
@@ -42,7 +42,7 @@ class LostPet(db.Model):
     last_seen = db.Column(db.String(255), nullable=False)
     description = db.Column(db.Text, nullable=False)
     contact_info = db.Column(db.String(100), nullable=False)
-    images = db.Column(db.String(255))  # Will store file paths to images
+    images = db.Column(db.String(255))  
 
     def __init__(self, pet_name, pet_type, breed, color_markings, size_weight, age, gender,
                  distinguishing_features, last_seen, description, contact_info, images):
@@ -68,7 +68,7 @@ class FoundPet(db.Model):
     gender = db.Column(db.String(50))
     location_found = db.Column(db.String(255), nullable=False)
     additional_info = db.Column(db.Text)
-    images = db.Column(db.Text)  # Comma-separated list of filenames
+    images = db.Column(db.Text)  
 
     def __init__(self, founder_name, founder_phone, pet_type, breed, gender, location_found, additional_info, images):
         self.founder_name = founder_name
@@ -81,8 +81,6 @@ class FoundPet(db.Model):
         self.images = images
 
 
-
-# Create tables
 with app.app_context():
     db.create_all()
 
@@ -147,7 +145,6 @@ def allowed_file(filename):
 @app.route('/report_lost', methods=['GET', 'POST'])
 def report_lost():
     if request.method == 'POST':
-        # Collect form data
         pet_name = request.form['pet-name']
         pet_type = request.form['pet-type']
         breed = request.form['breed']
@@ -160,21 +157,17 @@ def report_lost():
         description = request.form['description']
         contact_info = request.form['contact']
 
-        # Handling image uploads for lost pets
         uploaded_images = []
         if 'pet-image' in request.files:
             files = request.files.getlist('pet-image')
             for file in files:
                 if file and allowed_file(file.filename):
                     filename = secure_filename(file.filename)
-                    # Save the file in the lost_pets directory
                     file.save(os.path.join('static/uploads/lost_pets', filename))
                     uploaded_images.append(filename)
 
-        # Store images as comma-separated strings
         image_filenames = ','.join(uploaded_images)
 
-        # Save the lost pet details to the database
         lost_pet = LostPet(pet_name=pet_name, pet_type=pet_type, breed=breed,
                            color_markings=color_markings, size_weight=size_weight, age=age, gender=gender,
                            distinguishing_features=distinguishing_features, last_seen=last_seen,
@@ -192,7 +185,7 @@ def report_lost():
 @app.route('/found_pets', methods=['GET', 'POST'])
 def found_pets():
     if request.method == 'POST':
-        # Collect form data
+
         founder_name = request.form['founder-name']
         founder_phone = request.form['founder-phone']
         pet_type = request.form['pet-type']
@@ -201,21 +194,17 @@ def found_pets():
         location_found = request.form['location-found']
         additional_info = request.form['additional-info']
 
-        # Handling image uploads for found pets
         uploaded_images = []
         if 'pet-image' in request.files:
             files = request.files.getlist('pet-image')
             for file in files:
                 if file and allowed_file(file.filename):
                     filename = secure_filename(file.filename)
-                    # Save the file in the found_pets directory
                     file.save(os.path.join('static/uploads/found_pets', filename))
                     uploaded_images.append(filename)
 
-        # Store images as comma-separated strings
         image_filenames = ','.join(uploaded_images)
 
-        # Save the found pet details to the database
         found_pet = FoundPet(founder_name=founder_name, founder_phone=founder_phone, pet_type=pet_type,
                              breed=breed, gender=gender, location_found=location_found,
                              additional_info=additional_info, images=image_filenames)
@@ -226,13 +215,6 @@ def found_pets():
         return redirect(url_for('dashboard'))
 
     return render_template('found_pets.html')
-
- 
-
-
-
-    
-
 
 if __name__ == '__main__':
     app.run(debug=True)
