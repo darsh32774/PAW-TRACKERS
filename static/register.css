@@ -1,0 +1,87 @@
+
+ body {
+     background-color: #5a0c8f; 
+  
+     font-family: 'Arial', sans-serif;
+     background-size: cover; /* Makes sure the image covers the entire background */
+     background-position: center; /* Centers the image */
+ }
+ 
+ .container {
+     margin-top: 50px;
+     padding: 30px;
+     border-radius: 10px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+     background-color: rgba(164, 27, 255, 0.8); /* Slightly transparent white */
+ }
+ 
+ h2 {
+     text-align: center;
+     font-family: 'Times New Roman'; /* Use the new font */
+     color: #000000; /* Purple */
+     margin-bottom: 20px;
+ }
+ 
+ .form-group label {
+     color: #f9f7f4; /* Orange */
+ }
+ 
+ /* The rest of your CSS remains the same */
+ 
+ 
+
+ 
+ .container {
+     margin-top: 50px;
+     padding: 30px;
+     border-radius: 10px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+     background-color: #ffffff;
+ }
+ 
+ h2 {
+     text-align: center;
+     color: #6a0dad; /* Purple */
+     margin-bottom: 20px;
+ }
+ 
+ .form-group label {
+     color: #ff8c00; /* Orange */
+ }
+ 
+ .form-control {
+     border: 2px solid #ffa229; /* Purple */
+     border-radius: 5px;
+ }
+ 
+ .form-control:focus {
+     border-color: #ff8c00; /* Orange */
+     box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+ }
+ 
+ .btn-dark {
+     background-color: #ff8c2f; /* Purple */
+     border: none;
+ }
+ 
+ .btn-dark:hover {
+     background-color: #ff8c2f; /* Darker Purple */
+ }
+ 
+ .btn-primary {
+     background-color: #ff8c00; /* Orange */
+     border: none;
+ }
+ 
+ .btn-primary:hover {
+     background-color: #ff8c00; /* Darker Orange */
+ }
+ 
+ a {
+     text-decoration: none;
+     color: #6a0dad; /* Purple */
+ }
+ 
+ a:hover {
+     text-decoration: underline;
+ }

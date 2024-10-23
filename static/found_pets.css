@@ -1,0 +1,33 @@
+body {
+     font-family: 'Arial', sans-serif;
+     background-color: #f0f4f8; /* Light gray background for contrast */
+ }
+ 
+ /* Section styles */
+ .section {
+     padding: 40px 20px;
+     margin: 40px auto;
+     border-radius: 10px;
+     background-color: #ffffff; /* White background for the form */
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* Title styles */
+ .h1.hero-title {
+     text-align: center;
+     color: #6a0dad; /* Purple */
+     font-size: 2.5em;
+     margin-bottom: 30px;
+     font-weight: bold;
+ }
+ 
+ /* Input group styles */
+ .input-group {
+     margin-bottom: 20px; /* Space between input groups */
+ }
+ 
+ /* Label styles */
+ .form-label {
+     font-weight: bold;
+     color: #ff8c00; /* Orange */
+ }

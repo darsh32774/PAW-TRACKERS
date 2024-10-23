@@ -1,0 +1,62 @@
+body {
+     background-color: #ffffff; /* Background color */
+     font-family: 'Arial', sans-serif; /* Font family */
+     background-size: cover; /* Cover the entire background */
+     background-position: center; /* Center the image */
+ }
+ 
+ .container {
+     margin-top: 50px;
+     padding: 30px;
+     border-radius: 10px;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+     background-color: rgba(164, 27, 255, 0.8); /* Slightly transparent */
+ }
+ 
+ h2 {
+     text-align: center;
+     font-family: 'Times New Roman'; /* Font style */
+     color: #000000; /* Black for text */
+     margin-bottom: 20px;
+ }
+ 
+ .form-group label {
+     color: #ff8c00; /* Orange */
+ }
+ 
+ .form-control {
+     border: 2px solid #ffa229; /* Orange border */
+     border-radius: 5px; /* Rounded corners */
+ }
+ 
+ .form-control:focus {
+     border-color: #ff8c00; /* Orange on focus */
+     box-shadow: 0 0 5px rgba(255, 140, 0, 0.5); /* Shadow on focus */
+ }
+ 
+ .btn-primary {
+     background-color: #ff8c00; /* Orange */
+     border: none; /* No border */
+     border-radius: 25px; /* Rounded corners */
+     padding: 12px 25px; /* Padding */
+     font-weight: bold; /* Bold text */
+     color: white; /* White text */
+     text-transform: uppercase; /* Uppercase text */
+     width: 100%; /* Full width */
+     margin-bottom: 10px; /* Space below the button */
+ }
+ 
+ .btn-dark {
+     background-color: #ff8c2f; /* Button color */
+     border: none; /* No border */
+     width: 100%; /* Full width */
+ }
+ 
+ a {
+     text-decoration: none; /* No underline */
+     color: #6a0dad; /* Purple */
+ }
+ 
+ a:hover {
+     text-decoration: underline; /* Underline on hover */
+ }
